@@ -1,0 +1,26 @@
+#index:
+#    path: /
+#    defaults: { _controller: 'App\Controller\DefaultController::index' }
+#app_lucky_number:
+#    path: /lucky/number/{max}
+#    controller: App\Controller\LuckyController::number
+#post_list:
+#  path: /post/{page}
+#  controller: App\Controller\PostController::list
+#  defaults:
+#          page: 1
+#  requirements:
+#          page: '\d+'
+#
+#post_show:
+#  path:     /show/{slug}
+#  controller: App\Controller\PostController::show
+#
+#indexAction:
+#  path:     /index
+#  controller: App\Controller\PostController::indexAction
+
+api:
+    path: /api
+    controller: App\Controller\LuckyController::api
+    methods: ['GET','POST']
