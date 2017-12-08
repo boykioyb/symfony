@@ -20,10 +20,12 @@
 #  path:     /index
 #  controller: App\Controller\PostController::indexAction
 
-api:
-    path: /api
-    controller: App\Controller\LuckyController::api
-    methods: ['GET','POST']
-admin:
-    path: /admin
-    controller: App\Controller\LuckyController::admin
+getFeeAll:
+    path: /api/fee/getAll
+    controller: App\Controller\LuckyController::getFeeAll
+    methods: ['POST']
+getFeeId:
+    path: /api/fee/getById
+    controller: App\Controller\LuckyController::getFeeId
+    methods: ['POST']
+
