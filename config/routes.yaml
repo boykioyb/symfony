@@ -24,3 +24,6 @@ api:
     path: /api
     controller: App\Controller\LuckyController::api
     methods: ['GET','POST']
+admin:
+    path: /admin
+    controller: App\Controller\LuckyController::admin

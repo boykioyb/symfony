@@ -12,20 +12,27 @@ use Psr\Log\LoggerInterface;
 class LuckyController extends Controller
 {
     const api = "fee/getAll";
+    const ENDPOINT_NAME = 'WEB_BACKEND';
+    const ENDPOINT_USER = 'admin';
+    const ENDPOINT_PASS = 'namviet@2017';
+    const ENDPOINT_KEY = 'ssd23ey8fdkjf@63293';
+    const LANGCODE = 'vi'; //'en'
 
-    public function api(LoggerInterface $logger)
+    public function api()
     {
-        $logger->info('I just got the logger');
-        $logger->error('An error occurred');
-
-        $logger->critical('I left the oven on!', array(
-            // include extra "context" info in your logs
-            'cause' => 'in_hurry',
+        $data = json_encode(array(
+            'id' => 1,
         ));
-
+        $params = array(
+            'serviceEndpointName' => self::ENDPOINT_NAME,
+            'data' => $data,
+            'checksum' => md5(self::ENDPOINT_NAME . $data . self::ENDPOINT_KEY),
+            'langCode' => self::LANGCODE,
+        );
         $client   = new Client(['base_uri' => URL_API]);
-        $response = $client->request('GET', self::api);
+        $response = $client->request('POST', self::api,['json' => $params]);
         return new Response($response->getBody());
     }
+
 
 }

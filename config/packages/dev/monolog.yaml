@@ -1,6 +1,6 @@
 monolog:
     handlers:
-        
+
         syslog_handler:
             type: syslog
             level: error
